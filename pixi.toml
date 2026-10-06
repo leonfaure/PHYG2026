@@ -1,0 +1,51 @@
+[workspace]
+name = "phyg"
+version = "2026.0.0"
+description = "PHYG 2026 — Phylogénie et génomique comparative: reproducible environment for the TME sessions"
+channels = ["conda-forge", "bioconda"]
+# No win-64: bioconda publishes no Windows builds of PHYLIP, samtools, bedtools
+# or mosdepth, and never will. Windows students work inside WSL2, where they are
+# linux-64. See SETUP.md.
+platforms = ["linux-64", "osx-64", "osx-arm64"]
+
+# ---------------------------------------------------------------------------
+# One environment for all seven sessions. Students run `pixi run lab` and never
+# choose an environment.
+# ---------------------------------------------------------------------------
+[dependencies]
+python = "3.12.*"
+jupyterlab = ">=4.4"
+ipywidgets = ">=8.1"
+biopython = ">=1.85"
+numpy = ">=2.0"
+scipy = ">=1.14"
+pandas = ">=2.2"
+matplotlib-base = ">=3.9"
+toytree = ">=3.0"
+
+# TME1, TME2, TME4 — distances, trees, parsimony, alignment
+phylip = "*"
+clustalo = "*"
+
+# TME7 — ancient genomes, depth of coverage
+samtools = ">=1.20"
+bedtools = ">=2.31"
+mosdepth = ">=0.3.8"
+igv = ">=2.19"
+
+# Notebook execution and PDF export. Used to check that a submitted notebook
+# runs and to render it for the administration; students can ignore them.
+nbconvert = ">=7.16"
+nbclient = ">=0.10"
+quarto = ">=1.5"
+
+[tasks]
+lab = "jupyter lab"
+# usage: pixi run selftest   (checks that the environment and tools work)
+selftest = "python selftest.py"
+# usage: pixi run check path/to/notebook.ipynb   (re-executes it)
+check = "jupyter execute --allow-errors"
+# usage: pixi run topdf path/to/notebook.ipynb   (PDF for the administration)
+# Typst is bundled with quarto, so no LaTeX installation is needed. Images that
+# the notebook references by path (the Exercise 5 GIFs) must sit next to it.
+topdf = "quarto render --to typst"
