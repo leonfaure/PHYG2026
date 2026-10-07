@@ -2,7 +2,7 @@
 
 ## Setting up your machine
 
-You need to do this **once**, before TME1. Ten minutes, mostly download time.
+You need to do this **once**, before TME1. It should take about ten minutes.
 
 Everything in this course runs from a single tool, `pixi`. You do **not** need
 Anaconda, you do not need `pip install`, and you never have to edit your `PATH`
@@ -15,12 +15,8 @@ or your `.bashrc`.
 **Read this before installing anything else.**
 
 This course uses compiled bioinformatics tools — PHYLIP, Clustal Omega, samtools,
-bedtools, mosdepth. **None of them has a Windows build**. Five of the seven sessions need them,
-starting with TME1.
-
-So install WSL2 (Windows Subsystem for Linux) **now**, and do the whole course
-inside it. Installing on Windows first and switching later means installing
-everything twice.
+bedtools, mosdepth. **None of them has a Windows build**.
+So you need to install WSL2 (Windows Subsystem for Linux).
 
 In PowerShell **as administrator**:
 
@@ -40,14 +36,7 @@ to you unchanged.
 > You can reach that folder from Windows Explorer by typing `\\wsl$` in the
 > address bar.
 
-> **No administrator rights on your machine?** Come and talk to us before TME1 —
-> do not wait. There is no way to run this course natively on Windows.
-
-**macOS and Linux users** — including Apple Silicon — have nothing to do here. The
-tools install natively. Go to Step 1.
-
-> **Intel Macs** (`osx-64`) are covered by the lock file but have **not been tested**.
-> They should work; if not, tell us.
+> **No administrator rights on your machine?** Use the local workstations (Linux machines). There is no way to run this course natively on Windows.
 
 ---
 
@@ -64,15 +53,6 @@ Close the terminal, open a new one, and check:
 ```sh
 pixi --version
 ```
-
-<details>
-<summary>Already have conda, brew or winget? You can also install pixi with one of these commands</summary>
-
-```sh
-conda install -c conda-forge pixi     # any platform
-brew install pixi                     # macOS
-```
-</details>
 
 ## Step 2 — Get the course material
 

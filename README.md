@@ -2,9 +2,6 @@
 
 Material for the practical sessions (TME) of the course, Sorbonne Université.
 
-For now this repository only contains the **installation instructions**. The
-material of each session will be added before the session.
-
 ## Getting started
 
 Follow **[SETUP.md](SETUP.md)** once, before the first session (about ten minutes;
